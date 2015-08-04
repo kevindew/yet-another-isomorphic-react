@@ -1,8 +1,9 @@
 {
-  "name": "react-webpack-server",
+  "name": "yet-another-isomorphic-react",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "As if the world needed another, a skeleton of an isomorphic React app that barely works.",
+  "main": "server.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
