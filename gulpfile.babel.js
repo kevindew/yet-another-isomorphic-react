@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 const webpackHost = process.env.WEBPACK_HOST || 'localhost';
 const webpackPort = process.env.WEBPACK_PORT || 3001;
 
-const commonLoaders = [ { test: /\.js$/, loader: 'babel' } ];
+const commonLoaders = [ { test: /\.js$/, exclude: /node_modules/, loader: 'jsx-loader!babel' } ];
 
 let webpackClient = {
   name: 'client',

@@ -2,7 +2,7 @@ html
   head
     title Isomorphic Fun
   body
-    div#react-root
+    div#react-root!= react
 
     unless production
       script(src="http://#{webpackHost}:#{webpackPort}/webpack-dev-server.js")
