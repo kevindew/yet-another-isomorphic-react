@@ -20,12 +20,12 @@ let webpackClient = {
   entry: [
     `webpack-dev-server/client?http://${webpackHost}:${webpackPort}`,
     'webpack/hot/only-dev-server',
-    './app/client/main.js'
+    './app/client/main'
   ],
   output: {
     path: path.join(__dirname, 'public/build'),
     publicPath: `http://${webpackHost}:${webpackPort}/build/`,
-    filename: '[hash].js'
+    filename: 'main.js'
   },
   module: {
     loaders: commonLoaders
@@ -74,6 +74,7 @@ gulp.task('default', ['webpack-dev-server', 'nodemon']);
 gulp.task('webpack-dev-server', (done) => {
   new WebpackDevServer(webpack(webpackClient), {
     publicPath: webpackClient.output.publicPath,
+    hot: true,
     stats: {
       colors: true
     }

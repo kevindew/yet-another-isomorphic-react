@@ -1,4 +1,7 @@
 import React from 'react';
-import Home from '../components/Home';
+import Router from 'react-router';
+import routes from './routes';
 
-React.render(<Home />, document.getElementById('react-root'));
+Router.run(routes, Router.HashLocation, (Root) => {
+  React.render(<Root/>, document.getElementById('react-root'));
+});

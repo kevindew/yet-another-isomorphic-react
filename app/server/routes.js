@@ -1,5 +1,6 @@
 import React from 'react';
-import Home from '../components/home';
+import App from '../components/app';
+import About from '../components/about'
 
 export default (app) => {
 
@@ -7,7 +8,7 @@ export default (app) => {
   // Default homepage route.
   //
   app.get('/', (req, res) => {
-    res.render('home', { react: React.renderToString(<Home />) });
+    res.render('home', { react: React.renderToString(<App><About/></App>) });
   });
 
 };
