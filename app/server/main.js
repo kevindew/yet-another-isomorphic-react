@@ -1,7 +1,8 @@
 import express from 'express';
-import routes from './routes';
 import path from 'path';
+import controller from './controller';
 import * as assets from './assets';
+import reactRender from './reactRender';
 
 const app = express();
 
@@ -22,7 +23,8 @@ app.locals.webpackAssetPath = assets.webpackAssetPath({
   webpackHost: app.get('webpackHost'),
   webpackPort: app.get('webpackPort')
 });
+app.locals.reactRender = reactRender;
 
-routes(app);
+controller(app);
 
 export default app;

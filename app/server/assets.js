@@ -13,16 +13,18 @@ export function loadWebpackAssetJson (webpackPath) {
 
 export function webpackAssetPath ({
   assetJsonFunction: assetJsonFunction,
-  production: production
+  production: production,
+  buildPath: buildPath,
+  webpackHost: webpackHost,
+  webpackPort: webpackPort
 }) {
   let assetPaths = assetJsonFunction();
   return (asset) => {
-    if (!production) {
-      assetPaths = assetJsonFunction();
-    }
     const name = asset.slice(0, path.extname(asset).length * -1);
     const extension = path.extname(asset).slice(1);
-    if (assetPaths[name] && assetPaths[name][extension]) {
+    if (!production) {
+      return `//${webpackHost}:${webpackPort}/${buildPath}/${asset}`;
+    } else if (assetPaths[name] && assetPaths[name][extension]) {
       return assetPaths[name][extension];
     } else {
       return asset;
